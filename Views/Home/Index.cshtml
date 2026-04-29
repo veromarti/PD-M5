@@ -1,0 +1,139 @@
+﻿@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="mb-4">
+    <h4 class="fw-bold mb-0"><i class="fas fa-house-chimney me-2 text-primary"></i>Dashboard</h4>
+    <small class="text-muted">Welcome to SportComplex Management System</small>
+</div>
+
+<!-- Stats Cards -->
+<div class="row g-3 mb-4">
+    <div class="col-md-3">
+        <div class="card shadow-sm h-100">
+            <div class="card-body d-flex align-items-center gap-3 p-3">
+                <div class="sc-stat-icon" style="background:#e0f2fe;">
+                    <i class="fas fa-users" style="color:#0284c7;"></i>
+                </div>
+                <div>
+                    <div class="sc-stat-value">@(ViewBag.TotalUsers ?? 0)</div>
+                    <div class="sc-stat-label">Total Users</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card shadow-sm h-100">
+            <div class="card-body d-flex align-items-center gap-3 p-3">
+                <div class="sc-stat-icon" style="background:#dcfce7;">
+                    <i class="fas fa-futbol" style="color:#16a34a;"></i>
+                </div>
+                <div>
+                    <div class="sc-stat-value">@(ViewBag.TotalSpaces ?? 0)</div>
+                    <div class="sc-stat-label">Sport Spaces</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card shadow-sm h-100">
+            <div class="card-body d-flex align-items-center gap-3 p-3">
+                <div class="sc-stat-icon" style="background:#fef9c3;">
+                    <i class="fas fa-calendar-check" style="color:#a16207;"></i>
+                </div>
+                <div>
+                    <div class="sc-stat-value">@(ViewBag.TotalBookings ?? 0)</div>
+                    <div class="sc-stat-label">Total Bookings</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card shadow-sm h-100">
+            <div class="card-body d-flex align-items-center gap-3 p-3">
+                <div class="sc-stat-icon" style="background:#dcfce7;">
+                    <i class="fas fa-circle-check" style="color:#16a34a;"></i>
+                </div>
+                <div>
+                    <div class="sc-stat-value">@(ViewBag.ActiveBookings ?? 0)</div>
+                    <div class="sc-stat-label">Active Bookings</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Quick Actions -->
+<div class="row g-3">
+    <div class="col-md-4">
+        <div class="card shadow-sm">
+            <div class="card-body p-4">
+                <div class="sc-stat-icon mb-3" style="background:#e0f2fe;">
+                    <i class="fas fa-users" style="color:#0284c7;"></i>
+                </div>
+                <h6 class="fw-bold mb-1">Users</h6>
+                <p class="text-muted small mb-3">Manage registered members of the system.</p>
+                <div class="d-flex gap-2">
+                    <a asp-controller="User" asp-action="Index" class="btn btn-sm btn-primary">
+                        <i class="fas fa-list me-1"></i>View all
+                    </a>
+                    <a asp-controller="User" asp-action="Create" class="btn btn-sm btn-outline-secondary">
+                        <i class="fas fa-plus me-1"></i>New
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card shadow-sm">
+            <div class="card-body p-4">
+                <div class="sc-stat-icon mb-3" style="background:#dcfce7;">
+                    <i class="fas fa-futbol" style="color:#16a34a;"></i>
+                </div>
+                <h6 class="fw-bold mb-1">Sport Spaces</h6>
+                <p class="text-muted small mb-3">Manage facilities available for booking.</p>
+                <div class="d-flex gap-2">
+                    <a asp-controller="SportSpace" asp-action="Index" class="btn btn-sm btn-success">
+                        <i class="fas fa-list me-1"></i>View all
+                    </a>
+                    <a asp-controller="SportSpace" asp-action="Create" class="btn btn-sm btn-outline-secondary">
+                        <i class="fas fa-plus me-1"></i>New
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card shadow-sm">
+            <div class="card-body p-4">
+                <div class="sc-stat-icon mb-3" style="background:#fef9c3;">
+                    <i class="fas fa-calendar-check" style="color:#a16207;"></i>
+                </div>
+                <h6 class="fw-bold mb-1">Bookings</h6>
+                <p class="text-muted small mb-3">Create and manage space reservations.</p>
+                <div class="d-flex gap-2">
+                    <a asp-controller="Reservation" asp-action="Index" class="btn btn-sm btn-warning">
+                        <i class="fas fa-list me-1"></i>View all
+                    </a>
+                    <a asp-controller="Reservation" asp-action="Create" class="btn btn-sm btn-outline-secondary">
+                        <i class="fas fa-plus me-1"></i>New
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .sc-stat-icon {
+        width: 44px; height: 44px; border-radius: 11px; flex-shrink: 0;
+        display: flex; align-items: center; justify-content: center;
+        font-size: 1.1rem;
+    }
+    .sc-stat-value {
+        font-size: 1.5rem; font-weight: 800; color: #0f172a; line-height: 1;
+    }
+    .sc-stat-label {
+        font-size: 0.75rem; color: #94a3b8; font-weight: 500; margin-top: 2px;
+    }
+</style>

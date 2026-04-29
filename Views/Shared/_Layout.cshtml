@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - SportComplex</title>
+    <script type="importmap"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.3.2/mdb.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/SportComplex.styles.css" asp-append-version="true" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+</head>
+<body>
+
+    <!-- SIDEBAR -->
+    <aside class="sc-sidebar">
+        <div class="sc-brand">
+            <div class="sc-brand-logo"><i class="fas fa-dumbbell"></i></div>
+            <div class="sc-brand-name">SportComplex</div>
+            <div class="sc-brand-sub">Management System</div>
+        </div>
+
+        <nav class="sc-nav">
+            <div class="sc-nav-section">Overview</div>
+            <a class="sc-nav-link" asp-area="" asp-controller="Home" asp-action="Index">
+                <i class="fas fa-house-chimney"></i> Dashboard
+            </a>
+
+            <div class="sc-nav-section">Management</div>
+            <a class="sc-nav-link" asp-area="" asp-controller="User" asp-action="Index">
+                <i class="fas fa-users"></i> Users
+            </a>
+            <a class="sc-nav-link" asp-area="" asp-controller="SportSpace" asp-action="Index">
+                <i class="fas fa-futbol"></i> Sport Spaces
+            </a>
+            <a class="sc-nav-link" asp-area="" asp-controller="Reservation" asp-action="Index">
+                <i class="fas fa-calendar-check"></i> Bookings
+            </a>
+        </nav>
+
+        <div class="sc-sidebar-footer">&copy; 2026 - SportComplex</div>
+    </aside>
+
+    <!-- MAIN WRAPPER -->
+    <div class="sc-main">
+        <div class="sc-topbar">
+            <div class="sc-topbar-crumb">
+                <i class="fas fa-chevron-right" style="color:#7dd3fc;font-size:.7rem;"></i>
+                @ViewData["Title"]
+            </div>
+            <div class="sc-live-pill">
+                <span class="sc-live-dot"></span> Live System
+            </div>
+        </div>
+
+        <div class="sc-body">
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.3.2/mdb.umd.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script>
+        // Active nav link
+        const _path = window.location.pathname.toLowerCase();
+        document.querySelectorAll('.sc-nav-link').forEach(function(link) {
+            const href = (link.getAttribute('href') || '').toLowerCase();
+            if (href && href !== '/' && _path.startsWith(href)) {
+                link.classList.add('sc-active');
+            } else if ((href === '/' || href === '') && (_path === '/' || _path === '')) {
+                link.classList.add('sc-active');
+            }
+        });
+    </script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

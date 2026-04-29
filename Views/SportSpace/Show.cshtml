@@ -1,0 +1,45 @@
+@model SportComplex.Models.SportSpace
+
+@{
+    ViewData["Title"] = "Sport Complex Details";
+}
+
+<div class="d-flex align-items-center mb-4">
+    <a asp-action="Index" asp-controller="SportSpace" class="btn btn-outline-secondary btn-sm me-3">
+        <i class="fas fa-arrow-left"></i>
+    </a>
+    <div>
+        <h4 class="fw-bold mb-0"><i class="fas fa-futbol me-2 text-info"></i>Sport Complex Details</h4>
+        <small class="text-muted">Sport Complex Info</small>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <div class="card shadow-sm">
+            <div class="card-body p-4">
+                <dl class="row mb-0">
+                    <dt class="col-sm-4 fw-semibold text-muted">ID</dt>
+                    <dd class="col-sm-8">#@Model.Id</dd>
+
+                    <dt class="col-sm-4 fw-semibold text-muted">Name</dt>
+                    <dd class="col-sm-8">@Model.Name</dd>
+
+                    <dt class="col-sm-4 fw-semibold text-muted">Type</dt>
+                    <dd class="col-sm-8">
+                        <span class="badge bg-success-subtle text-success border border-success-subtle">@Model.Type</span>
+                    </dd>
+
+                    <dt class="col-sm-4 fw-semibold text-muted">Capacity</dt>
+                    <dd class="col-sm-8"><i class="fas fa-users me-1 text-muted"></i>@Model.Capacity people</dd>
+                </dl>
+            </div>
+            <div class="card-footer d-flex gap-2">
+                <a asp-action="Edit" asp-controller="SportSpace" asp-route-id="@Model.Id" class="btn btn-warning btn-sm">
+                    <i class="fas fa-pen me-2"></i>Edit
+                </a>
+                <a asp-action="Index" asp-controller="SportSpace" class="btn btn-outline-secondary btn-sm">Go Back</a>
+            </div>
+        </div>
+    </div>
+</div>

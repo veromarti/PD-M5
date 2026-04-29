@@ -1,0 +1,29 @@
+# Build output
+bin/
+obj/
+
+# User-specific Visual Studio files
+*.user
+*.suo
+.vs/
+
+# ASP.NET Core
+appsettings.Development.json
+
+# Sensitive config — never commit your real passwords
+appsettings.json
+
+# Entity Framework migrations (optional — remove this line if you want to commit migrations)
+# Migrations/
+
+# Rider / JetBrains
+.idea/
+
+# VS Code
+.vscode/
+
+# macOS
+.DS_Store
+
+# dotnet publish output
+publish/
