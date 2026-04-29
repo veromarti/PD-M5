@@ -17,7 +17,7 @@ A web-based management system built with ASP.NET Core MVC for handling users, sp
 
 ## Getting Started
 
-### 1. Clone the repository
+### 1. Clone the repository: https://github.com/veromarti/PD-M5
 
 ```bash
 git clone https://github.com/veromarti/PD-M5.git
